@@ -1,0 +1,19 @@
+{
+    "sigin": "Ingresar",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "logout": "Cerrar sesión",
+    "next": "Siguiente",
+    "usernameStep": {
+        "title": "Escriba su usuario de sistema",
+        "commonError": "El usuario ingresado no existe"
+    },
+    "passwordStep": {
+        "title": "{{name}}",
+        "subtitle": "Ingrese su contraseña",
+        "commonError": "Contraseña incorrecta"
+    },
+    "errors": {
+        "usernameOrPasswordIncorrect": "El usuario o contraseña es incorrecto"
+    }
+}

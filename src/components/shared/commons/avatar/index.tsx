@@ -1,6 +1,7 @@
 import { Avatar as MuiAvatar } from "@mui/material";
 import { stringToColour, trimObject } from "../../utils";
 import React, { useMemo } from "react";
+import { isStringNotEmpty } from "src/utils/utils";
 
 interface IAvatarProps {
     alt?:string,
@@ -19,7 +20,7 @@ const Avatar = (props:IAvatarProps) => {
 
 	}, [alt, size]);
 
-	const ChildrenCompoennt = props.children ?? props.alt ? `${props.alt.split(" ")[0][0]}${props.alt.split(" ")[1][0]}` : null;
+	const ChildrenCompoennt = props.children ?? createFirstLetterNames(props.alt);
 
 	return (
 		<MuiAvatar
@@ -29,6 +30,19 @@ const Avatar = (props:IAvatarProps) => {
 			{ChildrenCompoennt}
 		</MuiAvatar>
 	);
+};
+
+const createFirstLetterNames = (names?:string) => {
+	if (!isStringNotEmpty(names)) {
+		return null;
+	}
+
+	if (names.includes(" ")) {
+		const namesSplitted = names.split(" ");
+		return `${namesSplitted[0][0]}${namesSplitted[0][1]}`;
+	}
+
+	return names[0];
 };
 
 export default Avatar;

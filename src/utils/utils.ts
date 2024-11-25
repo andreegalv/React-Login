@@ -74,10 +74,6 @@ export const getRandomId = (minVal:number, maxVal:number):number => {
 	return Math.round(randVal);
 };
 
-export const isDebugMode = () => {
-	return !process.env.NODE_ENV || process.env.NODE_ENV === "development";
-};
-
 export const isNullOrUndefined = <T>(param?:T) => {
 	return param === undefined || param === null;
 };

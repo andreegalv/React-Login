@@ -9,24 +9,28 @@ export const useSecurityApi = () => {
 
 	return useMemo(() => ({
 		user_endpoints: {
-			getUserProfileAsync: () => {
-				return http<{name: string}>({
-					client: {
-						url: "User/Profile",
-						method: "get"
-					}
-				});
-			},
 			confirmUserNameAsync: (username:string) => {
-				return http<IUser>({
+				return Promise.resolve<IUser>({
+					id: "12345",
+					name: "Administrador",
+					username
+				});
+				
+				/*return http<IUser>({
 					client: {
 						url: `SigIn/ConfirmUsername/${username}`
 					},
 					unAuthorizedClient: true
-				});
+				});*/
 			},
 			userSigIn: (username:string, password:string) => {
-				return http<{userId:string, token: string, isOk: boolean}>({
+				return Promise.resolve<{userId: string, token:string, isOk: boolean}>({
+					userId: "12345",
+					token: "ejYeerq.1234.test",
+					isOk: true
+				});
+
+				/*return http<{userId:string, token: string, isOk: boolean}>({
 					client: {
 						url: "SigIn",
 						method: "post",
@@ -35,16 +39,7 @@ export const useSecurityApi = () => {
 							password
 						}
 					}
-				});
-			},
-			validateToken: (token:string) => {
-				return http<{userId:string}>({
-					client: {
-						url: "Token/Validate",
-						method: "get"
-					},
-					options: { authorization: `Bearer ${token}` }
-				});
+				});*/
 			},
 		}
 	}), [http]);

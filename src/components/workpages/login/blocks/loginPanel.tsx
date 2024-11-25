@@ -5,7 +5,6 @@ import LoginBottom from "./loginBottom";
 import ManageStepForm from "./formSteps/manageStepForm";
 
 const LoginPanelMemo = memo(() => {
-
 	return (
 		<Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
 			<LoginTitle />

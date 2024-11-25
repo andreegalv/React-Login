@@ -8,8 +8,6 @@ import { useTranslate } from "src/components/shared/commons/text/translate";
 import Text from "src/components/shared/commons/text";
 import { IUser } from "src/components/shared/commons/models/user";
 import Avatar from "src/components/shared/commons/avatar";
-import { useSurvey as useUserSurvey } from "src/components/shared/reducer/user/actions";
-import { useNavigate } from "react-router";
 
 const useTitles = (user:IUser) => {
 	const [setTranslate] = useTranslate();
@@ -49,25 +47,14 @@ const FormLastStep = (props:IFormLastStepProps) => {
 			onRender: (props) => <Button {...props} title={titles.siginButton.label} />
 		}
 	});
-
-	const { setUserLogged } = useUserSurvey();
-	const navigate = useNavigate();
     
 	return (
 		<Form
 			buttonProps={buttonPropsRef.current}
 			elevation={0}
 			initialValues={initialValuesRef.current}
-			onSubmit={async (values, { onError }) => {
-				try {
-					await setUserLogged(props.user?.username, values?.password as string);
-					navigate("/", { replace: true });
-				}
-				catch(err) {
-					if (err?.response) {
-						onError({ password: titles.password.commonError });
-					}
-				}
+			onSubmit={async () => {
+				alert("Logged!");
 			}}
 			sx={{
 				".form-buttons": {

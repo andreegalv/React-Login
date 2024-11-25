@@ -1,0 +1,17 @@
+{
+    "invalidDecimalRange": "Valor de rango invalido (max. {{integer}}.{{precision}})",
+    "invalidValue": "No es valido",
+    "fieldRequired": "Este campo es requerido",
+    "fieldDuplicated": "Valor del campo ya esta siendo utilizado",
+    "minValueError": "El valor debe ser mayor de ${min} caracteres",
+    "fieldAtleastOneValue": "Al menos un valor es requerido",
+    "http": {
+        "fetchServerError": "Ha ocurrido un error al intentar hacer una petición al servidor"
+    },
+    "invalidEmail": "Correo electrónico no es valido",
+    "moreThanValueError": "El valor debe ser mayor que {{moreThan}}",
+    "valueAlreadyExists": "El valor ya existe",
+    "unexpectedGenericError": "Se ha generado un error no esperado",
+    "cantLoadTable": "No fue posible cargar la tabla",
+    "unknownError": "Error desconocido"
+}
